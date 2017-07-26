@@ -1,0 +1,43 @@
+﻿
+<UserControl x:Class="SGZ.UI.Views.AllTicketsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"   
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:DAL="clr-namespace:SGZ.DataAccess;assembly=SGZ.DataAccess"
+             xmlns:viewmodel="clr-namespace:SGZ.UI.ViewModel"
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="330">
+    <UserControl.Resources>
+        <viewmodel:AllTicketsViewModel x:Key="allTicketsViewModel"></viewmodel:AllTicketsViewModel>
+    </UserControl.Resources>
+
+    <Grid x:Name="gridMain" Width="990" 
+          DataContext="{ Binding Source={StaticResource allTicketsViewModel}}">
+
+        <Grid x:Name="gridChild" DataContext="{ Binding Path=Tickets }"  Width="990">
+            <Button Content="Get All Tickets" Height="39" HorizontalAlignment="Left" 
+                    Margin="30,0,0,0" Name="btnGetAllTickets" VerticalAlignment="Top"
+                    Width="130" Command="{ Binding Path=DataContext.AllTickets, ElementName=gridMain}"></Button>
+            <DataGrid AutoGenerateColumns="False" Height="239" HorizontalAlignment="Left"
+                      Margin="10,68,0,0" Name="dgEmployee" VerticalAlignment="Top" Width="990"
+                      DataContext="{Binding}" ItemsSource="{Binding}" ColumnWidth="*">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{ Binding TicketID }" Header="TicketID" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{ Binding Title }" Header="Title" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{ Binding Category }" Header="Category" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{ Binding Severity }" Header="Severity" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{ Binding Priority }" Header="Priority" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{ Binding CreatedBy }" Header="CreatedBy" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{ Binding CreatedDateTime }" Header="CreatedDateTime" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{ Binding AssignedTo }" Header="AssignedTo" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{ Binding Status }" Header="Status" Width="100"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+
+
+
+</UserControl>    
