@@ -4,8 +4,11 @@
                              xmlns:local="clr-namespace:SGZ.AutoRefresh.UI"
                              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
                              Title="MainWindow"                             
-                             Width="525"
+                             Width="325"
                              Height="350"
+                             CornerRadius="8" 
+                             TitleBarBackground="Red"
+                             TitleBarHeight="60"
                              syncfusion:LayoutControl.SetMetroMode="True">
 
     <syncfusion:ChromelessWindow.DataContext>
@@ -26,8 +29,8 @@
             </ResourceDictionary>
         </Grid.Resources>
 
-        <syncfusion:LayoutControl HeaderText="Real-time Updates"
-                                  HeaderDescriptionText="This sample showcases real-time updates in SfDataGrid."
+        <syncfusion:LayoutControl HeaderText="Support Ticketing System"
+                                  HeaderDescriptionText="List of support tickets for this user."
                                   LayoutMode="Metro"
                                   UserOptionsVisibility="Visible">
             <syncfusion:LayoutControl.GridView>
@@ -36,7 +39,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <StackPanel Margin="10" Orientation="Horizontal">
+                    <!--<StackPanel Margin="10" Orientation="Horizontal">
                         <StackPanel.Resources>
                             <Style TargetType="TextBlock">
                                 <Setter Property="FontSize" Value="16" />
@@ -58,10 +61,10 @@
                                    FontWeight="SemiBold"
                                    Foreground="#FF191717"
                                    Text="10000" />
-                    </StackPanel>
+                    </StackPanel>-->
                     <syncfusion:SfDataGrid x:Name="datagrid"
                                            Grid.Row="1"
-                                           Margin="10,0,30,30"
+                                           Margin="10,0,10,10"
                                            AllowSorting="False"
                                            AutoGenerateColumns="False"
                                            ColumnSizer="Star"
@@ -74,7 +77,7 @@
                             <syncfusion:GridTextColumn MappingName="TicketID" TextAlignment="Left" />
                             <syncfusion:GridTextColumn MappingName="Title" />
                             <syncfusion:GridTextColumn MappingName="CreatedDateTime" TextAlignment="Right" />
-                            <syncfusion:GridTemplateColumn MappingName="Status" />
+                            <syncfusion:GridTextColumn MappingName="Status"  TextAlignment="Right"/>
                             <!--<syncfusion:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Grid>
@@ -111,14 +114,14 @@
                                 </DataTemplate>
                             </syncfusion:GridTemplateColumn.CellTemplate>-->
 
-                            <syncfusion:GridTextColumn MappingName="PreviousClose" TextAlignment="Right" />
-                            <syncfusion:GridTextColumn MappingName="Open" TextAlignment="Right" />
+                            <syncfusion:GridTextColumn MappingName="Severity" TextAlignment="Right" />
+                            <syncfusion:GridTextColumn MappingName="Priority" TextAlignment="Right" />
                         </syncfusion:SfDataGrid.Columns>                                                
                     </syncfusion:SfDataGrid>
                 </Grid>
             </syncfusion:LayoutControl.GridView>
 
-            <syncfusion:LayoutControl.UserOptionsView>
+            <!--<syncfusion:LayoutControl.UserOptionsView>
                 <syncfusion:UserOptions Margin="-10,20,0,0" HeaderText="Options:">
                     <StackPanel>
                         <StackPanel Margin="5">
@@ -150,7 +153,7 @@
                                 Content="{Binding ButtonContnt}" />
                     </StackPanel>
                 </syncfusion:UserOptions>
-            </syncfusion:LayoutControl.UserOptionsView>
+            </syncfusion:LayoutControl.UserOptionsView>-->
         </syncfusion:LayoutControl>
 
     </Grid>

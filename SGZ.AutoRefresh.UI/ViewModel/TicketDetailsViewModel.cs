@@ -17,25 +17,25 @@ namespace SGZ.AutoRefresh.UI
         ObservableCollection<tbl_tickets> data;
         Random r = new Random(123345345);
         internal DispatcherTimer timer;
-        private bool enableTimer = false;
-        private DelegateCommand<object> btonClick;
-        private double timerValue;
-        private string _ButtonContnt;
+        private bool enableTimer = false;        
+        private double timerValue;        
         private int noOfUpdates = 500;
 
-        public ObservableCollection<tbl_tickets> listTicketDetails { get; set; }
-        //{
-        //    get
-        //    {
-        //        return this.data;
-        //    }
-        //}
+        public ObservableCollection<tbl_tickets> listTicketDetails
+        {
+            get
+            {
+                return this.data;
+            }
+        }
 
         public TicketDetailsViewModel()
         {
             this.data = new ObservableCollection<tbl_tickets>();
-            listTicketDetails = new ObservableCollection<tbl_tickets>();
+
+            //listTicketDetails = new ObservableCollection<tbl_tickets>();
             this.RefreshData();
+
             this.timer = new DispatcherTimer();
             this.ResetRefreshFrequency(2500);
             timer.Interval = TimeSpan.FromMilliseconds(100);
@@ -75,13 +75,7 @@ namespace SGZ.AutoRefresh.UI
                 RaisePropertyChanged("TimeSpanValue");
             }
         }
-
-
-        public DelegateCommand<object> BtonClick
-        {
-            get { return btonClick; }
-        }
-
+                
         /// <summary>
         /// Determines whether this instance [can button click].
         /// </summary>

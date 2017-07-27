@@ -34,7 +34,7 @@ namespace SGZ.DataAccess
 
         public List<tbl_tickets> GetAllTickets()
         {
-            return objectDataContext.tbl_tickets.ToList();
+            return objectDataContext.tbl_tickets.Take(18).ToList();
         }
 
     }

@@ -72,7 +72,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helper\Converters.cs" />
+    <Compile Include="Helper\PasswordBoxAssistant.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Command\LoginCommand.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\TicketDetailsViewModel.cs" />
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
